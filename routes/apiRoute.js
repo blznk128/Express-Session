@@ -16,12 +16,12 @@ module.exports = (app) => {
         })
     });
 
-    app.use((req, res, next) => {
-        if (req.cookies.user_sid && !req.session.user) {
-            res.clearCookie('user_sid');        
-        }
-        next();
-    });
+    // app.use((req, res, next) => {
+    //     if (req.cookies.user_sid && !req.session.user) {
+    //         res.clearCookie('user_sid');        
+    //     }
+    //     next();
+    // });
 
     app.route("/api/login")
         .post((req, res) => {
@@ -45,5 +45,15 @@ module.exports = (app) => {
          }
             res.json(req.session.user)
         
+    });
+
+    app.post('/api/logout', (req, res) => {
+        if (req.session.user && req.cookies.user_sid) {
+            loggedin = false; 
+            res.clearCookie('user_sid');
+            res.redirect('/');
+        } else {
+            res.redirect('/');
+        }
     });
 };
