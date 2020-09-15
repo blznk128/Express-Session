@@ -11,8 +11,8 @@ const userEmail = $("#email")
 function submitInfo() {
   event.preventDefault()
   let newDonor = {
-    userName: user_Name.val(),
     first_Name: firstName.val(),
+    userName: user_Name.val(),
     last_Name: lastName.val(),
     password: userPassword.val(),
     email: userEmail.val()

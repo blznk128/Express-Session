@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let nonProfit = sequelize.define("nonProfit", {
+    let NonProfit = sequelize.define("NonProfit", {
         nonProfitName: {
             type: DataTypes.STRING,
             allowNull: true
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true
         },
-        logLink: {
+        logoLink: {
             type: DataTypes.STRING,
             allowNull: true
         },
@@ -27,8 +27,16 @@ module.exports = (sequelize, DataTypes) => {
         phone: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        userName: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
 
-    return nonProfit
+    return NonProfit
 }

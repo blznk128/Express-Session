@@ -16,12 +16,26 @@ module.exports = (app) => {
         })
     });
 
-    // app.use((req, res, next) => {
-    //     if (req.cookies.user_sid && !req.session.user) {
-    //         res.clearCookie('user_sid');        
-    //     }
-    //     next();
-    // });
+    app.post("/api/newNonProfit", (req, res) => {
+        db.NonProfit.create({
+            userName: req.body.userName,
+            website: req.body.website,
+            nonProfitName: req.body.nonProfitName,
+            password: req.body.password,
+            proof: req.body.proof,
+            logoLink: req.body.logoLink,
+            hqAddress: req.body.hqAddress,
+            email: req.body.email,
+            phone: req.body.phone
+        })
+        .then(dbNonProfit => {
+            res.json(dbNonProfit)
+            req.session.dbNonProfit = dbNonProfit.dataValues;
+            console.log("new NonProfit sign up: " + req.session.dbNonProfit.userName)
+        })
+    });
+
+    
 
     app.route("/api/login")
         .post((req, res) => {
@@ -37,11 +51,35 @@ module.exports = (app) => {
         });
     });
 
+    app.route("/api/nonProfitLogin")
+        .post((req, res) => {
+            let userName = req.body.userName,
+                password = req.body.password;
+        db.NonProfit.findOne({ where: { userName: userName && password} }).then(function (user) {
+            if (!user) {
+                console.log("this is user ", user);
+            }  else {
+                req.session.user = user.dataValues;
+                res.redirect('/api/nonProfitSession');
+            }
+        });
+    });
+
     app.get('/api/dashboard', (req, res) => {
         if (req.session.user && req.cookies.user_sid) {
             loggedin = true; 
             userName = req.session.user.userName;  
             console.log("hey over here " + req.session.user.first_Name); 
+         }
+            res.json(req.session.user)
+        
+    });
+
+    app.get('/api/nonProfitSession', (req, res) => {
+        if (req.session.user && req.cookies.user_sid) {
+            loggedin = true; 
+            userName = req.session.user.userName;  
+            console.log("hey over here " + req.session.user.userName); 
          }
             res.json(req.session.user)
         

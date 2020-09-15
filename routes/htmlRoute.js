@@ -13,4 +13,16 @@ module.exports = (app) => {
     app.get("/donorHomePage", (req, res) => {
         res.sendFile(path.join(__dirname, "../public/donorHomePage.html"))
     });
+
+    app.get("/nonProfitLogin", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/nonProfitLogin.html"))
+    });
+
+    app.get("/nonProfitSignUp", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/nonProfitSignUp.html"))
+    });
+
+    app.get("/nonProfitHome", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/nonProfitHome.html"))
+    });
 };

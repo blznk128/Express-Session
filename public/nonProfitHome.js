@@ -1,5 +1,7 @@
 function getNonProfit(data) {
-    $.get("/api/dashboard", function(data) {
+    $.get("/api/nonProfitSession", function(data) {
       console.log(data)
     })
   };
+
+  getNonProfit()

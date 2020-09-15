@@ -3,17 +3,17 @@ const userPassword = $("#passWord");
 
 function logInNonProfit() {
     event.preventDefault()
-    let logInDonor = {
+    let logInNP = {
         userName: user.val(),
         password: userPassword.val()
     }
-    console.log(logInDonor)
-    logIn(logInDonor)
+    console.log(logInNP)
+    logIn(logInNP)
 };
 
-function logIn(donorId) {
-    $.post("/api/logIn", donorId, () => {
+function logIn(nPId) {
+    $.post("/api/nonProfitLogin", nPId, () => {
         
-        window.location.href = "/donorHomePage"
+        window.location.href = "/nonProfitHome"
     })
 };
