@@ -94,4 +94,11 @@ module.exports = (app) => {
             res.redirect('/');
         }
     });
+
+    app.get("/api/allNonProfits/", (req, res) => {
+        db.NonProfit.findAll({})
+            .then((dbNonProfit)=> {
+                res.json(dbNonProfit)
+            });
+    });
 };
