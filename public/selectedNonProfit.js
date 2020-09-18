@@ -8,16 +8,31 @@ if (url.indexOf("?nonProfit_id=") !== -1) {
 
 
 function getEmployeeInfo(id) {
-    $.get("/api/employees/" + id, function(data) {
+    $.get("/api/selectedNonProfit/" + id, function(data) {
         console.log(data)
-    //   if (data) {
-    //     firstName.val(data.first_Name);
-    //     lastName.val(data.last_Name);
-    //     wage.val(data.wage);
-    //     department.val(data.department)
-    //     updating = true;
-    //     }
+        $("#nonProfitName").text(data.nonProfitName)
+        $("#saveNonProfit").on("click", function() {
+          console.log("hi")
+        })
       });
   }
 
-//   getEmployeeInfo()
+
+
+function getUser(data) {
+  $.get("/api/dashboard", function(data) {
+    userLoggedIn.text(data.userName)
+    $("#movieSave").on("click", function() {
+      event.preventDefault()
+      let newMovie = {
+        favoriteMovies: informationMovie.val()
+    }
+      addMovie(newMovie)
+    })
+    $("#savedMovie").on("click", function() {
+      event.preventDefault()
+      console.log("hi")
+      window.location.href = "/savedMovies"
+    })
+  })
+};

@@ -102,7 +102,7 @@ module.exports = (app) => {
             });
     });
 
-    app.get("/api/employees/:id", function(req, res) {
+    app.get("/api/selectedNonProfit/:id", function(req, res) {
         db.NonProfit.findOne({
           where: {
             id: req.params.id
