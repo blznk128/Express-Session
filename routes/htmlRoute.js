@@ -25,4 +25,8 @@ module.exports = (app) => {
     app.get("/nonProfitHome", (req, res) => {
         res.sendFile(path.join(__dirname, "../public/nonProfitHome.html"))
     });
+
+    app.get("/selectedNonProfit", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/selectedNonProfit.html"))
+    })
 };

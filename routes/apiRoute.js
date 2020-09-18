@@ -101,4 +101,15 @@ module.exports = (app) => {
                 res.json(dbNonProfit)
             });
     });
+
+    app.get("/api/employees/:id", function(req, res) {
+        db.NonProfit.findOne({
+          where: {
+            id: req.params.id
+          }
+        })
+          .then(function(dbNonProfit) {
+            res.json(dbNonProfit);
+          });
+      });
 };

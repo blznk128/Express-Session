@@ -1,6 +1,8 @@
 let listOfNonProfits = $("#nonProfitList")
 let nonProfitList = []
 
+$(document).on("click", "button.edit", goToNonProfit);
+
 function getUser(data) {
     $.get("/api/dashboard", function(data) {
       console.log(data.first_Name)
@@ -21,12 +23,20 @@ function allNonProfits() {
   
   $.get("api/allNonProfits", function(data) {
     for ( let i = 0; i < data.length; i++) {
+      console.log(data)
       nonProfitList.push(data[i].nonProfitName)
+      listOfNonProfits.append("<li id = " + data[i].id + ">" + nonProfitList[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
     }
     console.log(nonProfitList)
-    listOfNonProfits.append(nonProfitList)
+    
   })
   
+}
+
+function goToNonProfit() {
+  let currentPost = $(this).parent().attr("id")
+  window.location.href = "/selectedNonProfit?nonProfit_id=" + currentPost;
+  console.log(currentPost)
 }
 
 getUser()
