@@ -3,17 +3,18 @@ let url = window.location.search;
 
 const nameOfNP = $("#nonProfitName")
 let selectedNP = ""
+let loggedInDonor = ""
 
 if (url.indexOf("?nonProfit_id=") !== -1) {
     employeeId = url.split("=")[1];
     getEmployeeInfo(employeeId);
   };
 
-  // $.get("/api/dashboard", function(donorLoggedIn) {
-  //   console.log(donorLoggedIn.id)
+  function addFavoriteNP(FavoriteNonProfit) {
+    $.post("/api/saveFavoriteNonProfit", FavoriteNonProfit, () => {
+    })
+}
 
-    
-  // })
 function getEmployeeInfo(id) {
     $.get("/api/selectedNonProfit/" + id, function(data) {
       selectedNP = data
@@ -22,14 +23,19 @@ function getEmployeeInfo(id) {
   
       }).then( function () {
         $.get("/api/dashboard", function(donorLoggedIn) {
-          console.log(donorLoggedIn.id)
+          loggedInDonor = donorLoggedIn
+          console.log("logged in donor", loggedInDonor)
         })
       }).then(function() {
         $("#saveNonProfit").on("click", function() {
-          
-          console.log("hi")
-          console.log(selectedNP.id)
-          
+          console.log("non profit id",selectedNP.nonProfitName)
+          console.log("number 2 logged in donor ", loggedInDonor.id)
+          let saveNewNonProfitToDonor = {
+            favoriteNP: selectedNP.nonProfitName,
+            DonorId: loggedInDonor.id
+          }
+          addFavoriteNP(saveNewNonProfitToDonor)
+
         })
 
       })

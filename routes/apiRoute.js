@@ -112,4 +112,14 @@ module.exports = (app) => {
             res.json(dbNonProfit);
           });
       });
+
+    
+    app.post("/api/saveFavoriteNonProfit", (req, res) => {
+        db.FavoriteNonProfit.create(
+            req.body
+        )
+        .then((dbFavoriteNonProfit) => {
+            res.json(dbFavoriteNonProfit)
+        })
+    });  
 };
