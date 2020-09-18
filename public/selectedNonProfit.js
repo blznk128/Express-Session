@@ -1,20 +1,38 @@
 let url = window.location.search;
   let employeeId;
 
+const nameOfNP = $("#nonProfitName")
+let selectedNP = ""
+
 if (url.indexOf("?nonProfit_id=") !== -1) {
     employeeId = url.split("=")[1];
     getEmployeeInfo(employeeId);
   };
 
+  // $.get("/api/dashboard", function(donorLoggedIn) {
+  //   console.log(donorLoggedIn.id)
 
+    
+  // })
 function getEmployeeInfo(id) {
     $.get("/api/selectedNonProfit/" + id, function(data) {
-        console.log(data)
+      selectedNP = data
+        console.log(selectedNP)
         $("#nonProfitName").text(data.nonProfitName)
-        $("#saveNonProfit").on("click", function() {
-          console.log("hi")
+  
+      }).then( function () {
+        $.get("/api/dashboard", function(donorLoggedIn) {
+          console.log(donorLoggedIn.id)
         })
-      });
+      }).then(function() {
+        $("#saveNonProfit").on("click", function() {
+          
+          console.log("hi")
+          console.log(selectedNP.id)
+          
+        })
+
+      })
   }
 
 
@@ -36,3 +54,4 @@ function getUser(data) {
     })
   })
 };
+
