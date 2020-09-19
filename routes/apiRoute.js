@@ -41,7 +41,12 @@ module.exports = (app) => {
         .post((req, res) => {
             let userName = req.body.userName,
                 password = req.body.password;
-        db.Donor.findOne({ where: { userName: userName && password} }).then(function (user) {
+        db.Donor.findOne({ 
+            where: { 
+                userName: userName && password} ,
+                include: [db.FavoriteNonProfit]
+            })
+            .then(function (user) {
             if (!user) {
                 console.log("this is user ", user);
             }  else {
