@@ -5,7 +5,7 @@ $(document).on("click", "button.edit", goToNonProfit);
 
 function getUser(data) {
     $.get("/api/dashboard", function(data) {
-      console.log(data.first_Name)
+      console.log(data)
       $("#donorUser").text(data.first_Name)
     })
   };
@@ -37,6 +37,12 @@ function goToNonProfit() {
   let currentPost = $(this).parent().attr("id")
   window.location.href = "/selectedNonProfit?nonProfit_id=" + currentPost;
   console.log(currentPost)
+}
+
+function getFavoriteNPList() {
+  $.get("/api/retrieveFavoriteNP", (data) =>{
+    console.log(data)
+  })
 }
 
 getUser()

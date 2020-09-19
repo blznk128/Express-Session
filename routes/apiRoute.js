@@ -68,7 +68,8 @@ module.exports = (app) => {
     app.get('/api/dashboard', (req, res) => {
         if (req.session.user && req.cookies.user_sid) {
             loggedin = true; 
-            userName = req.session.user.userName;  
+            userName = req.session.user.userName;
+            
             console.log("hey over here " + req.session.user.first_Name); 
          }
             res.json(req.session.user)
@@ -122,4 +123,13 @@ module.exports = (app) => {
             res.json(dbFavoriteNonProfit)
         })
     });  
+
+    app.get("/api/retrieveFavoriteNP/", (req, res) => {
+        db.FavoriteNonProfit.findAll({
+            include: [db.Donor]
+        })
+            .then((dbFavoriteNonProfit)=> {
+                res.json(dbFavoriteNonProfit)
+            });
+    });
 };
