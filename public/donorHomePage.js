@@ -44,9 +44,9 @@ function getFavoriteNPList() {
   $.get("/api/dashboard", function(retrievedInfo) {
     for ( let i = 0; i < retrievedInfo.FavoriteNonProfits.length; i++) {
       favoriteNPSaved.push(retrievedInfo.FavoriteNonProfits[i].favoriteNP)
-      console.log(favoriteNPSaved[i])
+      console.log(retrievedInfo.FavoriteNonProfits[i].id)
       // listOfNonProfits.empty()
-      listOfFavoriteNonProfits.append("<li>" + favoriteNPSaved[i])
+      listOfFavoriteNonProfits.append("<li id = " + retrievedInfo.FavoriteNonProfits[i].id + ">" + favoriteNPSaved[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
     }
     
   })
