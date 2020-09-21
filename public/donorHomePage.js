@@ -1,5 +1,8 @@
 let listOfNonProfits = $("#nonProfitList")
+let listOfFavoriteNonProfits = $("#favoriteNonProfitList")
 let nonProfitList = []
+let favoriteNPSaved = []
+
 
 $(document).on("click", "button.edit", goToNonProfit);
 
@@ -27,8 +30,6 @@ function allNonProfits() {
       nonProfitList.push(data[i].nonProfitName)
       listOfNonProfits.append("<li id = " + data[i].id + ">" + nonProfitList[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
     }
-    console.log(nonProfitList)
-    
   })
   
 }
@@ -40,9 +41,18 @@ function goToNonProfit() {
 }
 
 function getFavoriteNPList() {
-  $.get("/api/retrieveFavoriteNP", (data) =>{
-    console.log(data)
+  $.get("/api/dashboard", function(retrievedInfo) {
+    for ( let i = 0; i < retrievedInfo.FavoriteNonProfits.length; i++) {
+      favoriteNPSaved.push(retrievedInfo.FavoriteNonProfits[i].favoriteNP)
+      console.log(favoriteNPSaved[i])
+      // listOfNonProfits.empty()
+      listOfFavoriteNonProfits.append("<li>" + favoriteNPSaved[i])
+    }
+    
   })
 }
+
+
+
 
 getUser()
