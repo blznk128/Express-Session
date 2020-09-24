@@ -8,6 +8,10 @@ const lastName = $("#last_name")
 const userPassword = $("#password")
 const userEmail = $("#email")
 
+$(".dropdown-trigger").dropdown();
+$('.sidenav').sidenav();
+$('.collapsible').collapsible();
+
 function submitInfo() {
   event.preventDefault()
   let newDonor = {

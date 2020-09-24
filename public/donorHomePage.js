@@ -3,6 +3,9 @@ let listOfFavoriteNonProfits = $("#favoriteNonProfitList")
 let nonProfitList = []
 let favoriteNPSaved = []
 
+$(".dropdown-trigger").dropdown();
+$('.sidenav').sidenav();
+$('.collapsible').collapsible();
 
 $(document).on("click", "button.edit", goToNonProfit);
 

@@ -1,6 +1,10 @@
 const user = $("#userName");
 const userPassword = $("#passWord");
 
+$(".dropdown-trigger").dropdown();
+$('.sidenav').sidenav();
+$('.collapsible').collapsible();
+
 function logInDonor() {
     event.preventDefault()
     let logInDonor = {
