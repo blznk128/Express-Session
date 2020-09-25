@@ -1,0 +1,23 @@
+/* ul.browser-default li {
+    list-style-type: initial;
+} */
+
+#indexLogo {
+    height: 135px;
+};
+
+li {
+    font-weight: bold!important;
+}
+
+.row {
+    font-weight: bold;
+}
+
+#mainContent {
+    padding-top: 50px;
+}
+
+body {
+    background-color: paleturquoise;
+}
