@@ -11,7 +11,7 @@ $(document).on("click", "button.edit", goToNonProfit);
 
 function getUser(data) {
     $.get("/api/dashboard", function(data) {
-      console.log(data.FavoriteNonProfits[0].favoriteNP)
+      
       $("#donorUser").text(data.first_Name)
     })
   };

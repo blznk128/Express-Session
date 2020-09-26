@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donor Portal</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="donorLogin.css">
 </head>
-<body>
+<body class = "light-blue accent-1">
   <nav class="nav-extended">
     <div class="nav-wrapper  indigo darken-1">
-      <a href="#" class="brand-logo">Charitee</a>
+      <a href="index.html" class="brand-logo">Charitee</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="donorHomePage.html">Home Page</a></li>
@@ -55,7 +57,8 @@
               <label for="email">Email</label>
             </div>
           </div>
-          <a id = submit class="waves-effect waves-light blue btn" onclick="submitInfo()">button</a>
+          <!-- <a id = submit class="waves-effect waves-light blue btn" onclick="submitInfo()">button</a> -->
+          <a id = submit onclick = "submitInfo()" class="waves-effect waves-light btn  pink lighten-1"><i class="material-icons left">cloud</i>submit</a>
         </form>
       </div>
     
