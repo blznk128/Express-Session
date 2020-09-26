@@ -1,0 +1,16 @@
+
+  
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid black;
+    box-shadow: 0 1px 0 0 black;
+  }
+  
+  .input-field label {
+    color: black;
+    font-size: 20px;
+  }
+  
+  input::-webkit-input-placeholder {
+    color: black !important;
+    }
