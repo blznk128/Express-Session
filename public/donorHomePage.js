@@ -24,8 +24,7 @@ function goToLogOff(userId) {
   })
 };
 
-function allNonProfits() {
-  event.preventDefault();
+
   
   $.get("api/allNonProfits", function(data) {
     for ( let i = 0; i < data.length; i++) {
@@ -35,7 +34,7 @@ function allNonProfits() {
     }
   })
   
-}
+
 
 function goToNonProfit() {
   let currentPost = $(this).parent().attr("id")
