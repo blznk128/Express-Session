@@ -7,7 +7,9 @@ $(".dropdown-trigger").dropdown();
 $('.sidenav').sidenav();
 $('.collapsible').collapsible();
 
-$(document).on("click", "button.edit", goToNonProfit);
+$(document).on("click", "a.testOne", goToNonProfit);
+
+
 
 function getUser(data) {
     $.get("/api/dashboard", function(data) {
@@ -24,22 +26,22 @@ function goToLogOff(userId) {
   })
 };
 
-
-  
   $.get("api/allNonProfits", function(data) {
     for ( let i = 0; i < data.length; i++) {
       console.log(data)
       nonProfitList.push(data[i].nonProfitName)
-      listOfNonProfits.append("<li id = " + data[i].id + ">" + nonProfitList[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
+      // listOfNonProfits.append("<li id = " + data[i].id + ">" + nonProfitList[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
+      $(".edit").append("<a id =" + data[i].id + " href='#'" + " class='testOne'"+">" + nonProfitList[i] + "</a>" + "             ")
     }
   })
   
 
 
 function goToNonProfit() {
-  let currentPost = $(this).parent().attr("id")
+  let currentPost = $(this).attr("id")
   window.location.href = "/selectedNonProfit?nonProfit_id=" + currentPost;
   console.log(currentPost)
+  
 }
 
 function getFavoriteNPList() {
