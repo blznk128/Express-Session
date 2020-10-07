@@ -54,7 +54,7 @@ function goToLogOff(userId) {
       nonProfitList.push(data[i].nonProfitName)
       
       $(".edit").append("<div class='col s3 m2'>" + "<div class='card'>" + "<div class='card-image'>" + 
-      "<img src='http://www.ilikewallpaper.net/ipad-wallpapers/download/2268/Square-Pattern-ipad-wallpaper-ilikewallpaper_com.jpg'>" + "<span class='card-title'>" + nonProfitList[i] + 
+      "<img src='https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/45/2019/11/MS_Penguin-Counting-Story_1900x800.jpg'>" + "<span class='card-title'>" + nonProfitList[i] + 
       "</span>" + "</div>" + "<div class='card-content'>" + "<p>" + "blah " + "</p>" + "</div>" + "<div class='card-action'>" + 
       "<a id =" + data[i].id + " href='#'" + " class='testOne'"+">" + nonProfitList[i] + "</a>" + "</div>" + "</div>" + "</div>")
       
@@ -71,17 +71,20 @@ function goToNonProfit() {
   
 }
 
-function getFavoriteNPList() {
   $.get("/api/dashboard", function(retrievedInfo) {
     for ( let i = 0; i < retrievedInfo.FavoriteNonProfits.length; i++) {
       favoriteNPSaved.push(retrievedInfo.FavoriteNonProfits[i].favoriteNP)
       console.log(retrievedInfo.FavoriteNonProfits[i].id)
       // listOfNonProfits.empty()
-      listOfFavoriteNonProfits.append("<li id = " + retrievedInfo.FavoriteNonProfits[i].id + ">" + favoriteNPSaved[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
+      // listOfFavoriteNonProfits.append("<li id = " + retrievedInfo.FavoriteNonProfits[i].id + ">" + favoriteNPSaved[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
+      listOfFavoriteNonProfits.append("<div class='col s3 m2'>" + "<div class='card'>" + "<div class='card-image'>" + 
+      "<img src='https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/45/2019/11/MS_Penguin-Counting-Story_1900x800.jpg'>" + "<span class='card-title'>" + nonProfitList[i] + 
+      "</span>" + "</div>" + "<div class='card-content'>" + "<p>" + "blah " + "</p>" + "</div>" + "<div class='card-action'>" + 
+      "<a id =" + retrievedInfo.FavoriteNonProfits[i].id + " href='#'" + " class='testOne'"+">" + favoriteNPSaved[i] + "</a>" + "</div>" + "</div>" + "</div>")
     }
     
   })
-}
+
 
 
 

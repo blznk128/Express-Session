@@ -5,9 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Non-Profit Log In</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="donorLogin.css">
 </head>
-<body>
-    <p>Dont have a non profit account? No problem! Click <a href="nonProfitSignUp.html">here</a> to sign up!</p>
+<body class = "light-blue accent-1">
+  <nav class="nav-extended">
+    <div class="nav-wrapper  indigo darken-1">
+      <a href="index.html" class="brand-logo">Charitee</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="nonProfitHome.html">Home Page</a></li>
+        <li><a href="nonProfitSignUp.html">Register</a></li>
+        <li onclick="goToLogOff()">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="nonProfitSignUp.html">Register</a></li>
+    <li><a href="nonProfitHome.html">Home Page</a></li>
+    <li onclick="goToLogOff()">Log Out</a></li>
+  </ul>
+
+    <h3 class="center-align">Don't have a non profit account? No problem! Click <a href="nonProfitSignUp.html">here</a> to sign up!</h3 class="center-align">
     <div class="row">
         <form class="col s12">
           <div class="row">
