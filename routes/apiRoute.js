@@ -26,7 +26,8 @@ module.exports = (app) => {
             logoLink: req.body.logoLink,
             hqAddress: req.body.hqAddress,
             email: req.body.email,
-            phone: req.body.phone
+            phone: req.body.phone,
+            aboutMe: req.body.aboutMe
         })
         .then(dbNonProfit => {
             res.json(dbNonProfit)

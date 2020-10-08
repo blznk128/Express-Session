@@ -11,6 +11,7 @@ const npLogo = $("#logoLink")
 const npHQ = $("#hqAddress")
 const npEmail = $("#email")
 const npPhone = $("#phone")
+const aboutNonProfit =$("#aboutNP")
 
 
 function submitInfo() {
@@ -25,6 +26,7 @@ function submitInfo() {
     hqAddress: npHQ.val(),
     email: npEmail.val(),
     phone: npPhone.val(),
+    aboutMe: aboutNonProfit.val()
   }
     console.log(newNonProfit)
     addNP(newNonProfit)
