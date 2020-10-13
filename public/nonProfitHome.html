@@ -7,10 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body class = "light-blue accent-1">
-    
-<h1>hello <span id = nonProfitUser></span></h1>
-<a id = logOutNP onclick = "goToLogOffNP()" class="waves-effect waves-light btn">log out</a>
-<a class="waves-effect waves-light btn">button</a>
+    <nav class="nav-extended">
+        <div class="nav-wrapper  indigo darken-1">
+          <a href="index.html" class="brand-logo">Charitee</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="nonProfitLogin.html">Non Profit Log In</a></li>
+            <li><a href="nonProfitSignUp.html">Non Profit Register</a></li>
+            <li onclick="goToLogOffNP()">Log Out</a></li>
+          </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="nonProfitSignUp.html">Non Profit Register</a></li>
+        <li><a href="nonProfitLogin.html">Non Profit Log In</a></li>
+        <li onclick="goToLogOffNP()">Log Out</a></li>
+    </ul>
+
+<h1 class = "center-align">Hi there <span id = nonProfitUser></span></h1>
+<h2 class = "center-align">Summary</h2>
+<p class = "center-align"><span id = "aboutMeSummary"></span></p>
+
 
 
 
