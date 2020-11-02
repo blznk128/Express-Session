@@ -17,3 +17,12 @@ function logIn(nPId) {
         window.location.href = "/nonProfitHome"
     })
 };
+
+function goToLogOffNP(userId) {
+    event.preventDefault();
+    console.log("hi")
+    $.post("/api/logout", userId, () => {
+        console.log(userId)
+        window.location.href = "/"
+    })
+  };
