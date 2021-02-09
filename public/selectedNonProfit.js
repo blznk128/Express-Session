@@ -1,6 +1,5 @@
 let url = window.location.search;
-  let employeeId;
-
+let employeeId;
 const nameOfNP = $("#nonProfitName")
 let selectedNP = ""
 let loggedInDonor = ""
@@ -40,8 +39,6 @@ function getEmployeeInfo(id) {
 
       })
   }
-
-
 
 function getUser(data) {
   $.get("/api/dashboard", function(data) {

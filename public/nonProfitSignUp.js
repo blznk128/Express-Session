@@ -31,7 +31,6 @@ function submitInfo() {
     console.log(newNonProfit)
     addNP(newNonProfit)
     window.location.href = "/nonProfitLogin"
-
 }
 
 function addNP(nonProfitRegistrar) {

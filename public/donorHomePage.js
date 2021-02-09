@@ -9,8 +9,6 @@ $('.collapsible').collapsible();
 
 $(document).on("click", "a.testOne", goToNonProfit);
 
-
-
 function getUser(data) {
     $.get("/api/dashboard", function(data) {
       
@@ -26,29 +24,7 @@ function goToLogOff(userId) {
   })
 };
 
-  // $.get("api/allNonProfits", function(data) {
-  //   for ( let i = 0; i < data.length; i++) {
-  //     console.log(data)
-  //     nonProfitList.push(data[i].nonProfitName)
-  //     // listOfNonProfits.append("<li id = " + data[i].id + ">" + nonProfitList[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
-  //     $(".edit").append("<a id =" + data[i].id + " href='#'" + " class='testOne'"+">" + nonProfitList[i] + "</a>" + "             ")
-  //   }
-  // })
-
-  // $.get("api/allNonProfits", function(data) {
-  //   for ( let i = 0; i < data.length; i++) {
-  //     console.log(data)
-  //     nonProfitList.push(data[i].nonProfitName)
-  //     // listOfNonProfits.append("<li id = " + data[i].id + ">" + nonProfitList[i] + "<button class = 'edit'>" + "see profile" + "</button>" +"</li>")
-  //     $(".edit").append("<div class='row>'" + "<div class='col s6 m7'>" + "<div class='card small'>" + 
-  //     "<div class='card-image'>" + "<img src='https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/45/2019/11/MS_Penguin-Counting-Story_1900x800.jpg'>" + "<span class='card-title'>" + nonProfitList[i] + 
-  //     "</span>" + "</div>" + "<div class='card-content'>" + "<p>" + "blah blah blah blah" + "</p>" + "</div>" + "<div class='card-action'>" + 
-  //     "<a id =" + data[i].id + " href='#'" + " class='testOne'"+">" + nonProfitList[i] + "</a>" + "</div>" + "</div>" + "</div>" + "</div>")
-  //     // $(".edit").append("<a id =" + data[i].id + " href='#'" + " class='testOne'"+">" + nonProfitList[i] + "</a>" + "             ")
-  //   }
-  // })
-  
-  $.get("api/allNonProfits", function(data) {
+$.get("api/allNonProfits", function(data) {
     for ( let i = 0; i < data.length; i++) {
       console.log(data)
       nonProfitList.push(data[i].nonProfitName)
@@ -61,9 +37,6 @@ function goToLogOff(userId) {
     }
   })
 
-
-
-
 function goToNonProfit() {
   let currentPost = $(this).attr("id")
   window.location.href = "/selectedNonProfit?nonProfit_id=" + currentPost;
@@ -71,7 +44,7 @@ function goToNonProfit() {
   
 }
 
-  $.get("/api/dashboard", function(retrievedInfo) {
+$.get("/api/dashboard", function(retrievedInfo) {
     for ( let i = 0; i < retrievedInfo.FavoriteNonProfits.length; i++) {
       favoriteNPSaved.push(retrievedInfo.FavoriteNonProfits[i].favoriteNP)
       console.log(retrievedInfo.FavoriteNonProfits[i].id)
@@ -84,9 +57,5 @@ function goToNonProfit() {
     }
     
   })
-
-
-
-
 
 getUser()

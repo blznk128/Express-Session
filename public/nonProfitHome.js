@@ -15,4 +15,4 @@ function getNonProfit(data) {
     })
   };
 
-  getNonProfit()
+getNonProfit()
